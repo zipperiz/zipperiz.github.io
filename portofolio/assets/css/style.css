@@ -221,9 +221,9 @@ q {font-style: italic;}
     -moz-box-shadow: none;
     box-shadow: none; }
     .main-btn.main-btn-2:hover {
-      background-color: #0038b2;
+      background-color: #fff;
       color: #fff;
-      border-color: #0038b2; }
+      border-color: #fff; }
 
 .sub-btn {
   display: inline-block;
@@ -240,7 +240,7 @@ q {font-style: italic;}
   font-size: 15px;
   line-height: 48px;
   border-radius: 50px;
-  color: #fff;
+  color: #0038b2;
   cursor: pointer;
   z-index: 5;
   -webkit-transition: all 0.3s ease-out 0s;
@@ -248,11 +248,11 @@ q {font-style: italic;}
   -ms-transition: all 0.3s ease-out 0s;
   -o-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
-  background-color: #0038b2;
+  background-color: #fff;
   text-transform: uppercase; }
   .sub-btn:hover {
-    background-color: #fff;
-    color: #0038b2;
+    background-color: #0038b2;
+    color: #fff;
     border-color: #0038b2; }
   .sub-btn.sub-btn-2 {
     background-color: transparent;
