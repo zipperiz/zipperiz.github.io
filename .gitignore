@@ -1,0 +1,26 @@
+
+# Large videos — hosted externally
+*.mp4
+*.mov
+*.mkv
+*.avi
+*.webm
+
+# Local editor settings
+.vscode/
+
+# Local backup
+/Backup
+
+# Archives
+*.zip
+
+# Secrets and environment files
+.env
+.env.*
+!.env.example
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini

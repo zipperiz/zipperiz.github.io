@@ -1,0 +1,11 @@
+[
+  {
+    "id": "graphic-001",
+    "title": "Poster Design",
+    "year": "2026",
+    "thumbnail": "assets/img/projects/graphic/thumbnail1.jpg",
+    "category": "Graphic Design",
+    "page": "page/graphic/graphic1.html",
+    "hidden": true
+  }
+]

@@ -1,0 +1,19 @@
+[
+  {
+    "id": "vid-001",
+    "title": "Talking Head Stamperly",
+    "year": "2026",
+    "thumbnail": "assets/img/projects/video/stamperly/thumbnail1.png",
+    "category": "Video",
+    "page": "page/video/stamperly.html"
+  },
+  {
+    "id": "vid-002",
+    "title": "Wedding Arif & Entin",
+    "year": "2024",
+    "thumbnail": "assets/img/projects/video/entin&arif/thumbnail1.png",
+    "category": "Video",
+    "page": "page/video/wedding-days-A&E.html",
+    "hidden": true
+  }
+]

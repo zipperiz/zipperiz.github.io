@@ -1,0 +1,19 @@
+[
+  {
+    "id": "brand-001",
+    "title": "Branding Zipperiz",
+    "year": "2017",
+    "thumbnail": "assets/img/projects/branding/zipperiz/thumbnail.png",
+    "category": "Branding",
+    "page": "page/branding/zipperiz.html"
+  },
+  {
+    "id": "brand-002",
+    "title": "Kubu Mesari Bonsai",
+    "year": "2019",
+    "thumbnail": "assets/img/projects/branding/kubu-mesari-bonsai/logo.png",
+    "category": "Branding",
+    "page": "page/branding/kubu-mesari-bonsai.html"
+  }
+  
+]

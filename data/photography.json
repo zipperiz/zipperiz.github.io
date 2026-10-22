@@ -1,0 +1,11 @@
+[
+  {
+    "id": "photo-001",
+    "title": "Event Photography",
+    "year": "2026",
+    "thumbnail": "assets/img/projects/photography/thumbnail1.jpg",
+    "category": "Photography",
+    "page": "page/photography/photo1.html",
+    "hidden": true
+  }
+]

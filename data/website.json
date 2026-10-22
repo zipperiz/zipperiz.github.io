@@ -1,0 +1,11 @@
+[
+  {
+    "id": "web-001",
+    "title": "Company Profile Website",
+    "year": "2026",
+    "thumbnail": "assets/img/projects/website/thumbnail2.jpg",
+    "category": "Website",
+    "page": "page/website/website1.html",
+    "hidden": true
+  }
+]
