@@ -1,0 +1,1019 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Apriladi Artama" />
+    <meta
+      name="description"
+      content="Steel League — a 3D, motion design, and broadcast visual package by ZIPPERIZ for an online competition streamed on YouTube."
+    />
+    <meta name="theme-color" content="#05070D" />
+    <title>ZIPPERIZ | Steel League — Broadcast Motion Package</title>
+
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../assets/css/fontawesome.css" />
+    <link rel="stylesheet" href="../../assets/css/style.css" />
+    <link rel="stylesheet" href="../../assets/css/project-detail.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800&family=Oxanium:wght@400;500;600;700;800&family=Rajdhani:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Page-specific components, aligned with ZIPPERIZ theme tokens. -->
+    <style>
+      :root {
+        --steel-accent: linear-gradient(
+          90deg,
+          var(--zip-blue),
+          var(--zip-purple) 52%,
+          var(--zip-red)
+        );
+      }
+
+      .steel-card-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .steel-media-card,
+      .steel-design-card,
+      .steel-live-card {
+        position: relative;
+        min-width: 0;
+        overflow: hidden;
+        border: 1px solid var(--zip-border);
+        border-radius: 10px;
+        background: linear-gradient(
+          155deg,
+          var(--zip-card-raised) 0%,
+          var(--zip-black) 100%
+        );
+        transition:
+          transform 0.3s ease,
+          border-color 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .steel-media-card::before,
+      .steel-design-card::before,
+      .steel-live-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        z-index: 2;
+        pointer-events: none;
+        background: var(--steel-accent);
+      }
+
+      .steel-media-card:hover,
+      .steel-design-card:hover,
+      .steel-live-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--zip-border-blue);
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
+      }
+
+      .steel-media-art,
+      .steel-design-art {
+        position: relative;
+        overflow: hidden;
+        background: #080d18;
+        aspect-ratio: 16 / 9;
+      }
+
+      .steel-media-art img,
+      .steel-design-art img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.45s ease;
+      }
+
+      .steel-media-card:hover .steel-media-art img,
+      .steel-design-card:hover .steel-design-art img {
+        transform: scale(1.025);
+      }
+
+      .steel-art-label {
+        position: absolute;
+        left: 14px;
+        bottom: 14px;
+        padding: 6px 10px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 4px;
+        background: rgba(5, 7, 13, 0.82);
+        color: #fff;
+        font:
+          700 11px/1.2 "Rajdhani",
+          sans-serif;
+        letter-spacing: 1.6px;
+        backdrop-filter: blur(8px);
+      }
+
+      .steel-media-copy {
+        padding: 24px;
+      }
+
+      .steel-kicker {
+        display: block;
+        margin-bottom: 9px;
+        color: var(--zip-blue);
+        font:
+          700 11px/1.3 "Rajdhani",
+          sans-serif;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+      }
+
+      .steel-media-copy h3,
+      .steel-design-copy h3,
+      .steel-live-copy h3 {
+        margin: 0 0 10px;
+        color: var(--zip-white);
+        font:
+          600 22px/1.3 "Oxanium",
+          sans-serif;
+      }
+
+      .steel-media-copy p,
+      .steel-design-copy p,
+      .steel-live-copy p {
+        margin: 0;
+        color: var(--zip-muted);
+        font:
+          400 15px/1.8 "Exo 2",
+          sans-serif;
+      }
+
+      .steel-preview-action {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 18px;
+        padding: 10px 14px;
+        border: 1px solid var(--zip-border-blue);
+        border-radius: 5px;
+        color: var(--zip-white) !important;
+        background: rgba(0, 107, 255, 0.08);
+        font:
+          700 12px/1.2 "Rajdhani",
+          sans-serif;
+        letter-spacing: 1.2px;
+        text-decoration: none;
+        transition:
+          background 0.25s ease,
+          border-color 0.25s ease,
+          transform 0.25s ease;
+      }
+
+      .steel-preview-action:hover {
+        border-color: var(--zip-blue);
+        background: rgba(0, 107, 255, 0.18);
+        color: var(--zip-white) !important;
+        transform: translateY(-2px);
+      }
+
+      .steel-preview-action.is-pending {
+        cursor: default;
+        opacity: 0.55;
+        pointer-events: none;
+      }
+
+      .steel-design-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .steel-design-art {
+        aspect-ratio: 4 / 3;
+      }
+
+      .steel-design-copy {
+        padding: 18px;
+      }
+
+      .steel-design-copy h3 {
+        font-size: 18px;
+      }
+
+      .steel-live-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .steel-live-frame {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        background:
+          radial-gradient(
+            ellipse at 15% 15%,
+            rgba(0, 107, 255, 0.16),
+            transparent 50%
+          ),
+          radial-gradient(
+            ellipse at 85% 85%,
+            rgba(219, 9, 20, 0.12),
+            transparent 50%
+          ),
+          #03050a;
+      }
+
+      .steel-live-frame iframe {
+        position: absolute;
+        inset: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      .steel-live-empty {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 22px;
+        color: #a9b3c4;
+        text-align: center;
+      }
+
+      .steel-live-empty .play-mark {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 54px;
+        height: 54px;
+        padding-left: 3px;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 50%;
+        color: white;
+        background: rgba(219, 9, 20, 0.9);
+        font-size: 19px;
+      }
+
+      .steel-live-empty strong {
+        color: var(--zip-white);
+        font:
+          600 17px/1.4 "Oxanium",
+          sans-serif;
+      }
+
+      .steel-live-empty small {
+        max-width: 360px;
+        color: var(--zip-muted-soft);
+        font:
+          400 12px/1.6 "Exo 2",
+          sans-serif;
+      }
+
+      .steel-live-copy {
+        padding: 22px;
+      }
+
+      .steel-live-copy h3 {
+        font-size: 20px;
+      }
+
+      .steel-live-copy .steel-preview-action {
+        margin-top: 14px;
+      }
+
+      .steel-section-note {
+        margin: -18px 0 34px 32px;
+        max-width: 800px;
+        color: var(--zip-muted);
+        font:
+          400 14px/1.8 "Exo 2",
+          sans-serif;
+      }
+
+      .steel-closing-note {
+        margin-top: 34px;
+        padding: 22px 24px;
+        border: 1px solid var(--zip-border);
+        border-left: 3px solid var(--zip-blue);
+        background: rgba(255, 255, 255, 0.02);
+        color: var(--zip-muted);
+        font:
+          400 14px/1.8 "Exo 2",
+          sans-serif;
+      }
+
+      @media (max-width: 991px) {
+        .steel-design-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .steel-card-grid,
+        .steel-live-grid {
+          gap: 16px;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .steel-card-grid,
+        .steel-live-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        .steel-design-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .steel-media-copy,
+        .steel-live-copy {
+          padding: 19px;
+        }
+        .steel-media-copy h3,
+        .steel-live-copy h3 {
+          font-size: 20px;
+        }
+        .steel-section-note {
+          margin-left: 0;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .steel-design-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        .steel-design-art {
+          aspect-ratio: 16 / 9;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- SIDEBAR -->
+    <aside class="project-sidebar">
+      <div class="project-sidebar-inner">
+        <a
+          href="../../portfolio.html"
+          class="project-brand"
+          aria-label="Back to ZIPPERIZ portfolio"
+        >
+          <img
+            src="../../assets/img/section/hero-img.jpg"
+            alt="ZIPPERIZ profile"
+          />
+        </a>
+
+        <button
+          type="button"
+          class="project-mobile-toggle"
+          aria-label="Open project navigation"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+        <a href="../../portfolio.html" class="project-back">
+          <span aria-hidden="true">←</span>
+          <span>BACK TO PORTFOLIO</span>
+        </a>
+
+        <nav class="project-side-nav" aria-label="Project sections">
+          <a href="#overview" class="active">01 — Overview</a>
+          <a href="#logo-reveal">02 — Logo Reveal</a>
+          <a href="#transitions">03 — Overlay Assets</a>
+          <a href="#designs">04 — Visual Designs</a>
+          <a href="#live-results">05 — Live Broadcast Results</a>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="project-main">
+      <!-- HERO -->
+      <header class="project-hero">
+        <div class="project-container">
+          <div class="project-eyebrow">3D / MOTION · BROADCAST VISUALS</div>
+          <h1 class="project-title">Steel League</h1>
+          <p class="project-intro">
+            A motion and visual package created for an online competition
+            streamed on YouTube, bringing together a logo reveal, promotional
+            teasers, bumpers, transitions, and supporting design assets for a
+            more cohesive broadcast identity.
+          </p>
+
+          <div class="project-meta">
+            <div class="project-meta-item">
+              <span>PROJECT</span>
+              <strong>Steel League</strong>
+            </div>
+            <div class="project-meta-item">
+              <span>FORMAT</span>
+              <strong>Online Competition</strong>
+            </div>
+            <div class="project-meta-item">
+              <span>ROLE</span>
+              <strong>3D / Motion Designer</strong>
+            </div>
+            <div class="project-meta-item">
+              <span>DELIVERABLES</span>
+              <strong>Reveal · Teasers · Bumpers · Graphics</strong>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- COVER: add the real cover artwork at the referenced path. -->
+      <section class="project-cover" aria-label="Steel League project cover">
+        <img
+          src="../../assets/img/projects/3d/steel-league/cover.png"
+          alt="Steel League broadcast motion package cover"
+        />
+      </section>
+
+      <!-- 01 OVERVIEW -->
+      <section class="project-section" id="overview">
+        <div class="project-container">
+          <div class="project-section-heading">
+            <span>01</span>
+            <h2>Project Overview</h2>
+          </div>
+
+          <div class="project-two-column">
+            <div>
+              <p>
+                Steel League is an online competition presented through live
+                broadcasts on YouTube. The project focused on developing motion
+                pieces and visual materials that support the event before and
+                during its broadcast.
+              </p>
+              <p>
+                The deliverables include a logo reveal, teasers and promotional
+                ads, broadcast bumpers, transitions, and supporting graphic
+                designs. The still designs are shown alongside the motion work
+                as part of one visual package, within the 3D / Motion category
+                of the ZIPPERIZ portfolio.
+              </p>
+            </div>
+
+            <div class="project-facts">
+              <div class="project-fact">
+                <span>PROJECT TYPE</span>
+                <strong>3D / Motion & Broadcast Design</strong>
+              </div>
+              <div class="project-fact">
+                <span>PLATFORM</span>
+                <strong>YouTube Live</strong>
+              </div>
+              <div class="project-fact">
+                <span>SCOPE</span>
+                <strong>Motion Package & Design Assets</strong>
+              </div>
+              <div class="project-fact">
+                <span>PROJECT STATUS</span>
+                <strong>Portfolio Case Study</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02 LOGO REVEAL -->
+      <section class="project-section project-section-dark" id="logo-reveal">
+        <div class="project-container">
+          <div class="project-section-heading">
+            <span>02</span>
+            <h2>Logo Reveal</h2>
+          </div>
+          <p class="steel-section-note">
+            The logo reveal introduces the Steel League identity with a
+            motion-led opening for use around the competition broadcast. Replace
+            the image and preview link with the actual project assets when
+            ready.
+          </p>
+
+          <div class="steel-card-grid">
+            <!-- VIDEO 01: BUMPER -->
+            <article class="steel-media-card">
+              <div class="drive-video-wrapper is-landscape">
+                <iframe
+                  class="drive-video-embed"
+                  src="https://drive.google.com/file/d/1Tj_5tfkomcQrDLxk48933b_TWJ6tc_CP/preview"
+                  title="Steel League Bumper Preview"
+                  loading="lazy"
+                  allow="autoplay"
+                  allowfullscreen
+                >
+                </iframe>
+              </div>
+
+              <div class="steel-media-copy">
+                <span class="steel-kicker">BROADCAST MOTION</span>
+
+                <h3>Steel League Bumper</h3>
+
+                <p>
+                  A branded motion bumper created for the Steel League online
+                  tournament broadcast, adding visual identity and energy
+                  between competition segments.
+                </p>
+              </div>
+            </article>
+
+            <!-- VIDEO 02: TEASER -->
+            <article class="steel-media-card">
+              <div class="drive-video-wrapper is-landscape">
+                <iframe
+                  class="drive-video-embed"
+                  src="https://drive.google.com/file/d/1RNK2CTESiguYPwQE1hIV0K6ua4pGLGyK/preview"
+                  title="Steel League Tournament Teaser Preview"
+                  loading="lazy"
+                  allow="autoplay"
+                  allowfullscreen
+                >
+                </iframe>
+              </div>
+
+              <div class="steel-media-copy">
+                <span class="steel-kicker">EVENT PROMOTION</span>
+
+                <h3>Steel League Tournament Teaser</h3>
+
+                <p>
+                  A promotional teaser designed to build anticipation for the
+                  Steel League tournament, featuring the competitive atmosphere
+                  of Free Fire and Mobile Legends.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- 04 OVERLAY ASSETS -->
+      <section class="project-section project-section" id="transitions">
+        <div class="project-container">
+          <div class="project-section-heading">
+            <span>03</span>
+            <h2>Overlay Asset</h2>
+          </div>
+          <p class="steel-section-note">
+            Short motion elements designed to connect broadcast moments and help
+            the stream feel more consistent from one segment to the next.
+          </p>
+
+          <div class="steel-card-grid">
+            <!-- VIDEO 01: LOWER THIRD -->
+            <article class="steel-media-card">
+              <div class="drive-video-wrapper is-landscape">
+                <iframe
+                  class="drive-video-embed"
+                  src="https://drive.google.com/file/d/13G-H8vkf9lCn-wqn9MmQkH9LaUL1CJgn/preview"
+                  title="Steel League Lower Third"
+                  loading="lazy"
+                  allow="autoplay"
+                  allowfullscreen
+                >
+                </iframe>
+              </div>
+
+              <div class="steel-media-copy">
+                <span class="steel-kicker">BROADCAST PACKAGE</span>
+                <h3>Lower Third</h3>
+              </div>
+            </article>
+
+            <!-- VIDEO 02: BROADCAST TRANSITIONS -->
+            <article class="steel-media-card">
+              <div class="drive-video-wrapper is-landscape">
+                <iframe
+                  class="drive-video-embed"
+                  src="https://drive.google.com/file/d/1UltOcT_rUYA66SpSh0GSMLWqnDFVgifb/preview"
+                  title="Steel League Broadcast Transitions"
+                  loading="lazy"
+                  allow="autoplay"
+                  allowfullscreen
+                >
+                </iframe>
+              </div>
+
+              <div class="steel-media-copy">
+                <span class="steel-kicker">MOTION TRANSITION</span>
+                <h3>Broadcast Transitions</h3>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 VISUAL DESIGN ASSETS -->
+
+      <section class="project-section project-section-dark" id="designs">
+        <div class="project-container">
+          <div class="project-section-heading">
+            <span>04</span>
+            <h2>Graphic Design</h2>
+          </div>
+
+          <p class="steel-section-note">
+            A collection of graphic and visual elements developed for the Steel
+            League live broadcast, designed to create a consistent visual
+            identity throughout the competition.
+          </p>
+
+          <div class="steel-design-grid steel-design-grid-text">
+            <article class="steel-design-card steel-design-card-text">
+              <div class="steel-design-copy">
+                <span class="steel-kicker">01 / BROADCAST GRAPHICS</span>
+                <h3>Broadcast Transitions</h3>
+              </div>
+            </article>
+
+            <article class="steel-design-card steel-design-card-text">
+              <div class="steel-design-copy">
+                <span class="steel-kicker">02 / GAMEPLAY OVERLAY</span>
+                <h3>Gameplay Overlay</h3>
+              </div>
+            </article>
+
+            <article class="steel-design-card steel-design-card-text">
+              <div class="steel-design-copy">
+                <span class="steel-kicker">03 / VIRTUAL ENVIRONMENT</span>
+                <h3>Virtual Stage Studio</h3>
+              </div>
+            </article>
+
+            <article class="steel-design-card steel-design-card-text">
+              <div class="steel-design-copy">
+                <span class="steel-kicker">04 / STUDIO DESIGN</span>
+                <h3>Virtual Desk Stage</h3>
+              </div>
+            </article>
+
+            <article class="steel-design-card steel-design-card-text">
+              <div class="steel-design-copy">
+                <span class="steel-kicker">05 / IDENTITY GRAPHICS</span>
+                <h3>Match Information Graphics</h3>
+              </div>
+            </article>
+
+            <article class="steel-design-card steel-design-card-text">
+              <div class="steel-design-copy">
+                <span class="steel-kicker">06 / BROADCAST ELEMENTS</span>
+                <h3>Lower Third & Scoreboard</h3>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      
+<!-- 05 LIVE BROADCAST RESULTS -->
+<section class="project-section project-section-dark" id="live-results">
+  <div class="project-container">
+    <div class="project-section-heading">
+      <span>05</span>
+      <h2>Live Broadcast Results</h2>
+    </div>
+
+    <p class="steel-section-note">
+      Selected Steel League broadcasts featuring Mobile Legends,
+      Free Fire, and Wild Rift, showcasing the complete broadcast
+      graphics and visual production.
+    </p>
+
+    <div class="steel-live-grid">
+
+      <!-- VIDEO 01 -->
+      <article class="steel-live-card">
+        <div class="steel-youtube-fallback">
+          <span class="steel-youtube-status">
+            <span class="steel-status-dot"></span>
+            STREAMING VIDEO AVAILABLE ON YOUTUBE
+          </span>
+
+          <div class="steel-youtube-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor"
+                d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/>
+            </svg>
+          </div>
+
+          <h3>Mobile Legends Tournament</h3>
+          <p>
+            Watch the Mobile Legends tournament
+            broadcast from Discovery E-Sport.
+          </p>
+
+          <a class="steel-youtube-button"
+             href="https://www.youtube.com/watch?v=8ejpLcB2hP4&t=3575s"
+             target="_blank" rel="noopener noreferrer">
+            WATCH ON YOUTUBE <span>↗</span>
+          </a>
+
+          <small class="steel-youtube-hint">Opens in a new tab</small>
+        </div>
+
+        <div class="steel-live-copy">
+          <span class="steel-kicker">LIVE BROADCAST / 01</span>
+          <p>DISCOVERY E-SPORT | STEEL LEAGUE</p>
+        </div>
+      </article>
+
+      <!-- VIDEO 02 -->
+      <article class="steel-live-card">
+        <div class="steel-youtube-fallback">
+          <span class="steel-youtube-status">
+            <span class="steel-status-dot"></span>
+            STREAMING VIDEO AVAILABLE ON YOUTUBE
+          </span>
+
+          <div class="steel-youtube-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor"
+                d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/>
+            </svg>
+          </div>
+
+          <h3>F4: Free Fire For Fun</h3>
+          <p>
+            Watch the Free Fire For Fun broadcast from
+            Discovery E-Sport.
+          </p>
+
+          <a class="steel-youtube-button"
+             href="https://www.youtube.com/watch?v=TWBIyA-FlVo"
+             target="_blank" rel="noopener noreferrer">
+            WATCH ON YOUTUBE <span>↗</span>
+          </a>
+
+          <small class="steel-youtube-hint">Opens in a new tab</small>
+        </div>
+
+        <div class="steel-live-copy">
+          <span class="steel-kicker">LIVE BROADCAST / 02</span>
+          <p>DISCOVERY E-SPORT | STEEL LEAGUE</p>
+        </div>
+      </article>
+
+      <!-- VIDEO 03 -->
+      <article class="steel-live-card">
+        <div class="steel-youtube-fallback">
+          <span class="steel-youtube-status">
+            <span class="steel-status-dot"></span>
+            STREAMING VIDEO AVAILABLE ON YOUTUBE
+          </span>
+
+          <div class="steel-youtube-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor"
+                d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/>
+            </svg>
+          </div>
+
+          <h3>League of Legends: Wild Rift</h3>
+          <p>
+            Watch the Wild Rift competition broadcast from
+            Discovery E-Sport.
+          </p>
+
+          <a class="steel-youtube-button"
+             href="https://www.youtube.com/watch?v=o1TpLbICDh8"
+             target="_blank" rel="noopener noreferrer">
+            WATCH ON YOUTUBE <span>↗</span>
+          </a>
+
+          <small class="steel-youtube-hint">Opens in a new tab</small>
+        </div>
+
+        <div class="steel-live-copy">
+          <span class="steel-kicker">LIVE BROADCAST / 03</span>
+          <p>DISCOVERY E-SPORT | STEEL LEAGUE</p>
+        </div>
+      </article>
+
+      <!-- VIDEO 04 -->
+      <article class="steel-live-card">
+        <div class="steel-youtube-fallback">
+          <span class="steel-youtube-status">
+            <span class="steel-status-dot"></span>
+            STREAMING VIDEO AVAILABLE ON YOUTUBE
+          </span>
+
+          <div class="steel-youtube-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor"
+                d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/>
+            </svg>
+          </div>
+
+          <h3>F4: Free Fire Fun Fight</h3>
+          <p>
+            Watch the Free Fire Fun Fight broadcast from
+            Discovery E-Sport.
+          </p>
+
+          <a class="steel-youtube-button"
+             href="https://www.youtube.com/watch?v=e6_2XvxNoJo"
+             target="_blank" rel="noopener noreferrer">
+            WATCH ON YOUTUBE <span>↗</span>
+          </a>
+
+          <small class="steel-youtube-hint">Opens in a new tab</small>
+        </div>
+
+        <div class="steel-live-copy">
+          <span class="steel-kicker">LIVE BROADCAST / 04</span>
+          <p>DISCOVERY E-SPORT | STEEL LEAGUE</p>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="steel-closing-note">
+      <strong style="color: var(--zip-white)">Broadcast Showcase</strong>
+      <p>
+        These broadcasts showcase the graphic design, gameplay overlays,
+        transitions, and virtual studio elements developed for Steel League.
+        All videos are hosted on YouTube.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+      <!-- PROJECT NAVIGATION -->
+      <section class="project-navigation-section">
+        <div class="project-container">
+          <div class="project-navigation">
+            <a href="../../portfolio.html" class="project-nav-link">
+              <span>BACK TO PORTFOLIO</span>
+              <strong>← All Projects</strong>
+            </a>
+            <a href="../../portfolio.html" class="project-nav-center"
+              >ALL PROJECTS</a
+            >
+            <a
+              href="../../portfolio.html"
+              class="project-nav-link project-nav-next"
+            >
+              <span></span>
+              <strong></strong>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <footer class="project-footer">
+        <div class="project-container">
+          <p>© 2026 ZIPPERIZ. All rights reserved.</p>
+        </div>
+      </footer>
+    </main>
+
+    <script src="../../assets/js/jquery-3.5.1.min.js"></script>
+    <script src="../../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/js/main.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const toggle = document.querySelector(".project-mobile-toggle");
+        const sidebar = document.querySelector(".project-sidebar");
+        const navLinks = Array.from(
+          document.querySelectorAll(".project-side-nav a"),
+        );
+
+        if (toggle && sidebar) {
+          toggle.addEventListener("click", function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            const isOpen = sidebar.classList.toggle("project-menu-open");
+            toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+            toggle.setAttribute(
+              "aria-label",
+              isOpen ? "Close project navigation" : "Open project navigation",
+            );
+          });
+
+          navLinks.forEach(function (link) {
+            link.addEventListener("click", function () {
+              sidebar.classList.remove("project-menu-open");
+              toggle.setAttribute("aria-expanded", "false");
+              toggle.setAttribute("aria-label", "Open project navigation");
+            });
+          });
+        }
+
+        /* Activate external preview buttons only after a real URL is added. */
+        document
+          .querySelectorAll("[data-preview-url]")
+          .forEach(function (link) {
+            const url = (link.getAttribute("data-preview-url") || "").trim();
+            if (/^https?:\/\//i.test(url)) {
+              link.href = url;
+              link.target = "_blank";
+              link.rel = "noopener noreferrer";
+              link.classList.remove("is-pending");
+              link.removeAttribute("aria-disabled");
+              link.removeAttribute("tabindex");
+              link.textContent = "WATCH PREVIEW ↗";
+            }
+          });
+
+        /* Turn full YouTube URLs into embeds and set a direct-link fallback. */
+        function getYouTubeId(value) {
+          if (!value) return "";
+          try {
+            const url = new URL(value);
+            const host = url.hostname.replace(/^www\./, "");
+            if (host === "youtu.be")
+              return url.pathname.split("/").filter(Boolean)[0] || "";
+            if (
+              host.endsWith("youtube.com") ||
+              host.endsWith("youtube-nocookie.com")
+            ) {
+              const v = url.searchParams.get("v");
+              if (v) return v;
+              const parts = url.pathname.split("/").filter(Boolean);
+              const marker = parts.findIndex(function (part) {
+                return ["embed", "live", "shorts", "v"].includes(part);
+              });
+              if (marker >= 0 && parts[marker + 1]) return parts[marker + 1];
+            }
+          } catch (error) {
+            return "";
+          }
+          return "";
+        }
+
+        document
+          .querySelectorAll(".steel-live-frame[data-youtube-url]")
+          .forEach(function (frame) {
+            const url = (frame.getAttribute("data-youtube-url") || "").trim();
+            const card = frame.closest(".steel-live-card");
+            const fallback = card
+              ? card.querySelector("[data-live-link]")
+              : null;
+            const videoId = getYouTubeId(url);
+
+            if (!videoId) return;
+
+            const iframe = document.createElement("iframe");
+            iframe.src =
+              "https://www.youtube.com/embed/" + encodeURIComponent(videoId);
+            iframe.title =
+              (card &&
+                card.querySelector("h3") &&
+                card.querySelector("h3").textContent.trim()) ||
+              "Steel League YouTube broadcast";
+            iframe.loading = "lazy";
+            iframe.referrerPolicy = "strict-origin-when-cross-origin";
+            iframe.allow =
+              "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+            iframe.allowFullscreen = true;
+
+            const emptyState = frame.querySelector(".steel-live-empty");
+            if (emptyState) emptyState.remove();
+            frame.appendChild(iframe);
+
+            if (fallback) {
+              fallback.href = url;
+              fallback.target = "_blank";
+              fallback.rel = "noopener noreferrer";
+              fallback.classList.remove("is-pending");
+              fallback.removeAttribute("aria-disabled");
+              fallback.removeAttribute("tabindex");
+              fallback.textContent = "WATCH ON YOUTUBE ↗";
+            }
+          });
+
+        const sections = Array.from(
+          document.querySelectorAll(".project-section[id]"),
+        );
+        function setActiveSection() {
+          const scrollPosition = window.scrollY + 180;
+          let currentSection = sections[0] ? sections[0].id : "";
+          sections.forEach(function (section) {
+            if (scrollPosition >= section.offsetTop)
+              currentSection = section.id;
+          });
+          if (!currentSection) return;
+          navLinks.forEach(function (link) {
+            link.classList.toggle(
+              "active",
+              link.getAttribute("href") === "#" + currentSection,
+            );
+          });
+        }
+        window.addEventListener("scroll", setActiveSection, { passive: true });
+        setActiveSection();
+      });
+    </script>
+  </body>
+</html>

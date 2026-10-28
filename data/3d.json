@@ -1,12 +1,11 @@
 [
   {
     "id": "3d-001",
-    "title": "3D Product Visualization",
+    "title": "Steel League",
     "year": "2026",
-    "thumbnail": "assets/img/projects/3d/thumbnail1.jpg",
+    "thumbnail": "assets/img/projects/3d/steel-league/thumbnail.png",
     "category": "3D / Motion",
-    "page": "page/3d/3d1.html",
-    "hidden": true
+    "page": "page/3d/steel-league.html"
     
   }
 ] 

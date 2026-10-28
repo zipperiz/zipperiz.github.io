@@ -4258,3 +4258,268 @@ body {
   }
 
 }
+
+
+/* =========================================================
+   ZIPPERIZ — GLOBAL GOOGLE DRIVE VIDEO PLAYER
+   Reusable across all project detail pages
+========================================================= */
+
+.drive-video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  aspect-ratio: 16 / 9;
+  margin: 24px auto;
+  overflow: hidden;
+  border: 1px solid var(--zip-border);
+  border-radius: 10px;
+  background: var(--zip-black, #05070D);
+}
+
+.drive-video-embed {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: var(--zip-black, #05070D);
+}
+
+/* Landscape video */
+.drive-video-wrapper.is-landscape {
+  max-width: 1100px;
+  aspect-ratio: 16 / 9;
+}
+
+/* Portrait / vertical video */
+.drive-video-wrapper.is-portrait {
+  max-width: 440px;
+  aspect-ratio: 9 / 16;
+}
+
+/* Square video */
+.drive-video-wrapper.is-square {
+  max-width: 650px;
+  aspect-ratio: 1 / 1;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .drive-video-wrapper {
+    margin: 20px auto;
+    border-radius: 8px;
+  }
+
+  .drive-video-wrapper.is-portrait,
+  .drive-video-wrapper.is-square {
+    max-width: 100%;
+  }
+}
+
+/* STEEL LEAGUE — TEXT-ONLY DESIGN CATEGORIES */
+.steel-design-grid-text {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.steel-design-card-text {
+  position: relative;
+  min-height: 135px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid var(--zip-border, rgba(0, 107, 255, 0.25));
+  border-radius: 10px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 107, 255, 0.10),
+      rgba(56, 36, 75, 0.12) 55%,
+      rgba(219, 9, 20, 0.06)
+    ),
+    var(--zip-black, #05070D);
+  transition: border-color 0.25s ease,
+              transform 0.25s ease;
+}
+
+.steel-design-card-text::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    #006BFF,
+    #DB0914
+  );
+}
+
+.steel-design-card-text:hover {
+  border-color: rgba(0, 107, 255, 0.7);
+  transform: translateY(-3px);
+}
+
+.steel-design-card-text .steel-design-copy {
+  padding: 24px 26px;
+}
+
+.steel-design-card-text h3 {
+  margin: 10px 0 0;
+}
+
+.steel-design-footer {
+  margin-top: 24px;
+  text-align: center;
+  opacity: 0.8;
+}
+
+@media (max-width: 600px) {
+  .steel-design-grid-text {
+    grid-template-columns: 1fr;
+  }
+
+  .steel-design-card-text {
+    min-height: 110px;
+  }
+}
+
+
+/* STEEL LEAGUE — YOUTUBE FALLBACK CARDS */
+.steel-youtube-fallback {
+  box-sizing: border-box;
+  position: relative;
+  min-height: 390px;
+  padding: 44px 28px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  border: 3px solid transparent;
+  border-radius: 15px;
+  background:
+    linear-gradient(135deg, #06152d, #05070d 60%, #18080e)
+      padding-box,
+    linear-gradient(115deg, #087cff, #34204b 55%, #ed001b)
+      border-box;
+}
+
+.steel-youtube-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-bottom: 28px;
+  color: #d4dbea;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+}
+
+.steel-status-dot {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+  border-radius: 50%;
+  background: #ed001b;
+  box-shadow: 0 0 12px rgba(237, 0, 27, 0.45);
+}
+
+.steel-youtube-icon {
+  width: 68px;
+  height: 68px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.045);
+  color: #ff0018;
+}
+
+.steel-youtube-icon svg {
+  width: 34px;
+  height: 34px;
+}
+
+.steel-youtube-fallback h3 {
+  max-width: 440px;
+  margin: 0 0 14px;
+  color: #fff;
+  font-family: "Oxanium", sans-serif;
+  font-size: clamp(20px, 2vw, 27px);
+  line-height: 1.35;
+}
+
+.steel-youtube-fallback > p {
+  max-width: 490px;
+  margin: 0 0 26px;
+  color: #aab9d2;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.steel-youtube-button {
+  min-width: 244px;
+  min-height: 52px;
+  box-sizing: border-box;
+  padding: 15px 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border: 1px solid rgba(255, 70, 85, 0.65);
+  border-radius: 7px;
+  background: #ed0012;
+  box-shadow: 0 8px 25px rgba(237, 0, 18, 0.14);
+  color: #fff;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.steel-youtube-button:hover {
+  background: #ff1025;
+  transform: translateY(-2px);
+}
+
+.steel-youtube-button span {
+  font-size: 21px;
+  line-height: 1;
+}
+
+.steel-youtube-hint {
+  margin-top: 18px;
+  color: #7186a8;
+  font-size: 11px;
+}
+
+@media (max-width: 600px) {
+  .steel-youtube-fallback {
+    min-height: 350px;
+    padding: 32px 18px 24px;
+  }
+
+  .steel-youtube-status {
+    font-size: 10px;
+    letter-spacing: 1.1px;
+  }
+
+  .steel-youtube-fallback h3 {
+    font-size: 21px;
+  }
+
+  .steel-youtube-button {
+    min-width: 220px;
+  }
+}
