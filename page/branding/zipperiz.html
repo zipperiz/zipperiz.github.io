@@ -99,7 +99,9 @@
           <h1 class="project-title">Branding Zipperiz</h1>
 
           <p class="project-intro">
-            My personal branding project, focusing on creating a cohesive visual identity that reflects my professional persona and design philosophy.
+            My personal branding project, focusing on creating a cohesive visual
+            identity that reflects my professional persona and design
+            philosophy.
           </p>
 
           <div class="project-meta">
@@ -156,14 +158,15 @@
           <div class="project-two-column">
             <div>
               <p>
-                this for my logo personal branding project, focusing on creating a cohesive visual 
-                identity that reflects my professional persona and design philosophy.
+                this for my logo personal branding project, focusing on creating
+                a cohesive visual identity that reflects my professional persona
+                and design philosophy.
               </p>
 
               <p>
-                make me branding identity that is simple, modern, and professional. 
-                The logo is designed to be versatile and easily recognizable across 
-                various platforms and applications.
+                make me branding identity that is simple, modern, and
+                professional. The logo is designed to be versatile and easily
+                recognizable across various platforms and applications.
               </p>
             </div>
 
@@ -220,18 +223,21 @@
               <h3>Visual Direction</h3>
 
               <p>
-                The visual direction combines futuristic technology with a clean and professional visual language. 
-                The identity uses deep blue, red, and dark tones to represent technology, energy, and 
-                digital creativity while maintaining a strong and recognizable character.
+                The visual direction combines futuristic technology with a clean
+                and professional visual language. The identity uses deep blue,
+                red, and dark tones to represent technology, energy, and digital
+                creativity while maintaining a strong and recognizable
+                character.
               </p>
 
               <h3>Design Approach</h3>
 
               <p>
-                The identity is built around the distinctive ZIPPERIZ logo, supported by geometric forms, 
-                subtle circuit-inspired elements, and strong typography. 
-                The visual system is designed to work consistently across digital platforms, 
-                creative projects, networking environments, and personal branding applications.
+                The identity is built around the distinctive ZIPPERIZ logo,
+                supported by geometric forms, subtle circuit-inspired elements,
+                and strong typography. The visual system is designed to work
+                consistently across digital platforms, creative projects,
+                networking environments, and personal branding applications.
               </p>
 
               <div class="project-tags">
@@ -271,7 +277,14 @@
 
               <span> Initial Sketch </span>
             </div>
+            <div class="project-image-card">
+              <img
+                src="../../assets/img/projects/branding/zipperiz/grid.png"
+                alt="Logo Grid"
+              />
 
+              <span> Construction & Grid </span>
+            </div>
             <div class="project-image-card">
               <img
                 src="../../assets/img/projects/branding/zipperiz/development.png"
@@ -281,14 +294,7 @@
               <span> Logo Development </span>
             </div>
 
-            <div class="project-image-card">
-              <img
-                src="../../assets/img/projects/branding/zipperiz/grid.png"
-                alt="Logo Grid"
-              />
-
-              <span> Construction & Grid </span>
-            </div>
+            
           </div>
         </div>
       </section>
@@ -349,7 +355,7 @@
                 <span> #0047FF </span>
               </div>
             </div>
-            
+
             <div class="project-color-card">
               <div
                 class="project-color-swatch"
@@ -366,7 +372,7 @@
             <div class="project-color-card">
               <div
                 class="project-color-swatch"
-                style="background: #7A2BFF"
+                style="background: #7a2bff"
               ></div>
 
               <div>
@@ -393,7 +399,7 @@
               <div
                 class="project-color-swatch"
                 style="
-                  background: #FF2A3A;
+                  background: #ff2a3a;
                   border: 1px solid rgba(255, 255, 255, 0.15);
                 "
               ></div>
@@ -409,7 +415,7 @@
               <div
                 class="project-color-swatch"
                 style="
-                  background: #FF5F6B;
+                  background: #ff5f6b;
                   border: 1px solid rgba(255, 255, 255, 0.15);
                 "
               ></div>
@@ -446,8 +452,8 @@
               style="
                 background: linear-gradient(
                   135deg,
-                  #1E6BFF 0%,
-                  #7A2BFF 30%,
+                  #1e6bff 0%,
+                  #7a2bff 30%,
                   #b0041e 100%
                 );
               "
@@ -456,7 +462,9 @@
             <div>
               <span> PRIMARY GRADIENT </span>
 
-              <strong> Signature Blue → Magenta Transition → Signatur Red </strong>
+              <strong>
+                Signature Blue → Magenta Transition → Signatur Red
+              </strong>
             </div>
           </div>
         </div>
@@ -587,30 +595,28 @@
         </div>
       </section>
 
-      <!-- =====================================
-             PROJECT NAVIGATION
-        ====================================== -->
-
+      <!-- PROJECT NAVIGATION -->
       <section class="project-navigation-section">
         <div class="project-container">
           <div class="project-navigation">
-            <a href="../../portfolio.html" class="project-nav-link">
-              <span>BACK TO PORTFOLIO</span>
-              <strong>← All Projects</strong>
+            <a href="#" class="project-nav-link">
+              <span>PREVIOUS PROJECT</span>
+              <strong>← Previous Project</strong>
             </a>
 
             <a href="../../portfolio.html" class="project-nav-center">
               ALL PROJECTS
             </a>
 
-            <a href="kubu-mesari-bonsai.html" class="project-nav-link project-nav-next">
-              <span> NEXT PROJECT </span>
-
-              <strong> Next Project → </strong>
+            <a href="#" class="project-nav-link project-nav-next">
+              <span>NEXT PROJECT</span>
+              <strong>Next Project →</strong>
             </a>
           </div>
         </div>
       </section>
+
+      <script src="../../assets/js/project-navigation.js"></script>
 
       <!-- =====================================
              FOOTER
@@ -634,77 +640,51 @@
     <!-- Mobile Project Navigation -->
 
     <script>
-document.addEventListener("DOMContentLoaded", function () {
+      document.addEventListener("DOMContentLoaded", function () {
+        const sections = document.querySelectorAll(".project-section[id]");
+        const navLinks = document.querySelectorAll(".project-side-nav a");
 
-    const sections = document.querySelectorAll(".project-section[id]");
-    const navLinks = document.querySelectorAll(".project-side-nav a");
+        if (!sections.length || !navLinks.length) return;
 
-    if (!sections.length || !navLinks.length) return;
+        function setActiveSection() {
+          let currentSection = "";
 
+          const scrollPosition = window.scrollY + 180;
 
-    function setActiveSection() {
-
-        let currentSection = "";
-
-        const scrollPosition = window.scrollY + 180;
-
-
-        sections.forEach(function (section) {
-
+          sections.forEach(function (section) {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.offsetHeight;
 
             if (
-                scrollPosition >= sectionTop &&
-                scrollPosition < sectionTop + sectionHeight
+              scrollPosition >= sectionTop &&
+              scrollPosition < sectionTop + sectionHeight
             ) {
-                currentSection = section.id;
+              currentSection = section.id;
             }
+          });
 
-        });
+          if (!currentSection) return;
 
-
-        if (!currentSection) return;
-
-
-        navLinks.forEach(function (link) {
-
+          navLinks.forEach(function (link) {
             const target = link.getAttribute("href");
 
-            const isActive =
-                target === "#" + currentSection;
+            const isActive = target === "#" + currentSection;
 
-
-            link.classList.toggle(
-                "active",
-                isActive
-            );
-
+            link.classList.toggle("active", isActive);
 
             if (isActive) {
-
-                link.scrollIntoView({
-                    behavior: "smooth",
-                    block: "nearest"
-                });
-
+              link.scrollIntoView({
+                behavior: "smooth",
+                block: "nearest",
+              });
             }
+          });
+        }
 
-        });
+        window.addEventListener("scroll", setActiveSection, { passive: true });
 
-    }
-
-
-    window.addEventListener(
-        "scroll",
-        setActiveSection,
-        { passive: true }
-    );
-
-
-    setActiveSection();
-
-});
-</script>
+        setActiveSection();
+      });
+    </script>
   </body>
 </html>
