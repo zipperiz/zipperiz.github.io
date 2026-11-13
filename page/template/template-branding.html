@@ -598,77 +598,53 @@
     <!-- Mobile Project Navigation -->
 
     <script>
-document.addEventListener("DOMContentLoaded", function () {
+      document.addEventListener("DOMContentLoaded", function () {
+        const sections = document.querySelectorAll(".project-section[id]");
+        const navLinks = document.querySelectorAll(".project-side-nav a");
 
-    const sections = document.querySelectorAll(".project-section[id]");
-    const navLinks = document.querySelectorAll(".project-side-nav a");
+        if (!sections.length || !navLinks.length) return;
 
-    if (!sections.length || !navLinks.length) return;
+        function setActiveSection() {
+          let currentSection = "";
 
+          const scrollPosition = window.scrollY + 180;
 
-    function setActiveSection() {
-
-        let currentSection = "";
-
-        const scrollPosition = window.scrollY + 180;
-
-
-        sections.forEach(function (section) {
-
+          sections.forEach(function (section) {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.offsetHeight;
 
             if (
-                scrollPosition >= sectionTop &&
-                scrollPosition < sectionTop + sectionHeight
+              scrollPosition >= sectionTop &&
+              scrollPosition < sectionTop + sectionHeight
             ) {
-                currentSection = section.id;
+              currentSection = section.id;
             }
+          });
 
-        });
+          if (!currentSection) return;
 
-
-        if (!currentSection) return;
-
-
-        navLinks.forEach(function (link) {
-
+          navLinks.forEach(function (link) {
             const target = link.getAttribute("href");
 
-            const isActive =
-                target === "#" + currentSection;
+            const isActive = target === "#" + currentSection;
 
-
-            link.classList.toggle(
-                "active",
-                isActive
-            );
-
+            link.classList.toggle("active", isActive);
 
             if (isActive) {
-
-                link.scrollIntoView({
-                    behavior: "smooth",
-                    block: "nearest"
-                });
-
+              link.scrollIntoView({
+                behavior: "smooth",
+                block: "nearest",
+              });
             }
+          });
+        }
 
+        window.addEventListener("scroll", setActiveSection, {
+          passive: true,
         });
 
-    }
-
-
-    window.addEventListener(
-        "scroll",
-        setActiveSection,
-        { passive: true }
-    );
-
-
-    setActiveSection();
-
-});
-</script>
+        setActiveSection();
+      });
+    </script>
   </body>
 </html>
